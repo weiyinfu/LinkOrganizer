@@ -1,0 +1,94 @@
+@import "../../common.less";
+.el-header {
+  background: blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  #logo {
+    color: #eeffee;
+    font-size: 25px;
+  }
+}
+.el-main {
+  height: calc(100% - 60px);
+  .goodScrollBar();
+  background: #fafafa;
+}
+.el-dialog__wrapper {
+  .fillParent;
+  overflow: hidden;
+}
+#aboutDialog {
+  .el-dialog {
+    width: fit-content;
+  }
+}
+.page {
+  box-shadow: 0 0 13px #778877;
+  width: 65%;
+  margin-bottom: 40px;
+  padding: 25px;
+  background: white;
+  float: left;
+  margin: 25px;
+}
+.right-page {
+  float: right;
+  width: 23%;
+  margin-left: 5px;
+  margin-right: 20px;
+  background: white;
+  box-shadow: 0 0 13px #d5dad5;
+  padding: 10px;
+  .span-key {
+    font-size: 16px;
+    color: #778877;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .span-value {
+    font-size: 18px;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 540;
+  }
+}
+.el-card {
+  .title {
+    font-size: 25px;
+    .chinese {
+      font-family: "隶书", "微软雅黑", "Consolas";
+    }
+    .english {
+      font-family: Consolas;
+    }
+
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    overflow: hidden;
+  }
+  .card-img {
+    width: 40px;
+    height: 40px;
+  }
+  .card-bottom {
+    clear: both;
+    margin-top: 50px;
+    width: 100%;
+  }
+  .span-key {
+    font-size: 16px;
+    color: #778877;
+    width: 65px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .span-value {
+    font-size: 18px;
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 540;
+  }
+}
