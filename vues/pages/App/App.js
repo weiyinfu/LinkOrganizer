@@ -187,9 +187,11 @@ export default {
       })
         .then(resp => {
           console.log(resp)
+          this.$message("保存成功")
         })
         .catch(err => {
           console.log(err)
+          this.$message("保存失败")
         })
     },
     //创建文件夹
