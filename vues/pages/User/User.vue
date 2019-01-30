@@ -33,7 +33,7 @@
 
               <span class="title"
                 :title="data.name">
-                <router-link :to="{ name:'link.page',params:{ username:userInfo.name,linkId:data.id}}"
+                <router-link :to="{ name:'link.page',params:{ username:$route.params.username,linkId:data.id}}"
                   style="text-decoration:none;"
                   v-html="betterSpan(data.name)"></router-link>
               </span>
