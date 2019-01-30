@@ -1,1 +1,1 @@
-{ "GithubAuthClientSecret": "227ad7d42522768c2ffbb6ffef31d6d002ae887920ab93a4158423ff1968244a8d141f4205a16898c290d4bf2f4ac74d", "mysql.user": "0548cabfd62f5305", "mysql.password": "94fe0bf4c5c5d2c8", "CookieSessionSecret": "65157c7f0688a461a62e9150624d2f7cc17deebe0049f1a6" }
+{"GithubAuthClientSecret":"cef2a88358b4d2287a763bed5b25b65300e7e2874611c97cc440874b05db282e1d1d509261efe57fa87fed57d14a4e03","mysql.user":"16e5d97e9a30c026","mysql.password":"e5756ddf9027462b","CookieSessionSecret":"6639b20ea75ef4492616ea36a4790d2c22f0c1a109654294"}
