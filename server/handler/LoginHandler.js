@@ -65,7 +65,7 @@ function handleLogin(req, resp) {
                     return
                   }
                   logger.info("insert user result", res)
-                  loginSuccess(githubInfo.name, req, resp)
+                  loginSuccess(githubInfo.login, req, resp)
                 })
               )
             } else {
@@ -88,7 +88,7 @@ function handleLogin(req, resp) {
                     loginFail(req, resp)
                     return
                   }
-                  loginSuccess(githubInfo.name, req, resp)
+                  loginSuccess(githubInfo.login, req, resp)
                 }
               )
             }

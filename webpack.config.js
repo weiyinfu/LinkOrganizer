@@ -2,7 +2,7 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const path = require("path")
 const conf = require("./server/conf/config")
 
-module.exports = {
+const webpackCongig = {
   mode: conf.mode,
   entry: {
     main: path.join(__dirname, "./vues/main.js")
@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js"
-  }, 
+  },
   module: {
     rules: [
       {
@@ -40,9 +40,16 @@ module.exports = {
       vue: "vue/dist/vue.js"
     }
   },
-
   node: {
     fs: "empty"
   },
   plugins: [new VueLoaderPlugin()]
 }
+if (conf.mode == "production") {
+  webpackCongig.externals = {
+    vue: "Vue",
+    "element-ui": "ELEMENT",
+    "vue-router": "VueRouter"
+  }
+}
+module.exports = webpackCongig

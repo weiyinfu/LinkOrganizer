@@ -20,24 +20,34 @@ function getContext() {
 //日志的级别和颜色、权重
 var levels = {
   trace: {
+    name: "TRACE",
     color: "blue",
     weight: 100
   },
   debug: {
+    name: "DEBUG",
     color: "cyan",
     weight: 200
   },
   info: {
+    name: "INFO",
     color: "green",
     weight: 300
   },
-  error: {
-    color: "red",
+  warn: {
+    name: "WARN",
+    color: "yellow",
     weight: 400
   },
+  error: {
+    name: "ERROR",
+    color: "red",
+    weight: 500
+  },
   fatal: {
+    name: "FATAL",
     color: "magenta",
-    wight: 500
+    wight: 600
   }
 }
 class Logger {
@@ -62,10 +72,15 @@ class Logger {
         }
       })
       .join(" ")
-    var name = this.name ? `[${this.name}]` : ""
+    var name = this.name ? this.name : ""
+    const now = new Date()
+    const dateString = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`
     var contextString = ""
     if (ctx) contextString = `${ctx.filepath}:${ctx.line} (${ctx.funcName})`
-    console.log(chalk[level.color](`${name} ${contextString} ${s}`))
+    console.log(chalk[level.color](`${dateString} ${level.name} ${name} ${contextString} ${s}`))
+  }
+  trace(...args) {
+    this.go(levels.trace, ...args)
   }
   debug(...args) {
     this.go(levels.debug, ...args)
