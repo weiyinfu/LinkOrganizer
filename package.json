@@ -56,14 +56,15 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.21",
     "vue-router": "^3.0.2",
-    "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-dev-server": "^3.1.10",
     "ws": "^6.1.2",
     "webpack": "^4.27.1",
     "highlight.js": "^9.13.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-cli": "^3.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

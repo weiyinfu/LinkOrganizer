@@ -8,6 +8,7 @@ const jsonFieldList = ["extra"]
 const connectionFactory = genericPool.createPool(
   {
     create() {
+      logger.info("create connection")
       return mysql.createConnection({
         host: conf.mysql.host,
         port: conf.mysql.port,
@@ -19,14 +20,29 @@ const connectionFactory = genericPool.createPool(
       })
     },
     destroy(conn) {
+      logger.info("destroying connection")
       conn.end(err => {
         logger.error(err)
+      })
+    },
+    validate(conn) {
+      logger.info("validating connection ")
+      return new Promise((resolve, reject) => {
+        conn.ping(err => {
+          try {
+            if (err) resolve(false)
+            else resolve(true)
+          } catch (e) {
+            reject(e)
+          }
+        })
       })
     }
   },
   {
     max: 5,
-    min: 1
+    min: 1,
+    testOnBorrow: true
   }
 )
 function query(sql, args, handler) {
