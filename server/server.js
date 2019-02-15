@@ -13,14 +13,14 @@ var morgan = require("morgan")
 var rfs = require("rotating-file-stream")
 var cookieSession = require("cookie-session")
 var bodyParser = require("body-parser")
-var webpackConfig = require("../webpack.config")
+var webpackConfig = require("./webpack.config")
 var wsHandler = require("./handler/WsHandler")
 var httpHandler = require("./handler/HttpHandler")
 var config = require("./conf/config")
 const logger = require("./lib/log").getLogger()
 
 //定义好express app
-app = express()
+const app = express()
 //如果是开发模式，那么启用webpack自动更新，否则就当没有webpack
 
 if (webpackConfig.mode == "development") {

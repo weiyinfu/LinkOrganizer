@@ -19,6 +19,7 @@ export default {
       treeNodeEventList: ["keyup", "dblclick"],
       allowEdit: true, //是否允许结点拖拽
       linkData: null, //整个树的元信息
+      loading:true,//正在加载
       dragState: {
         //拖动状态
         draggingNode: null,
@@ -31,9 +32,11 @@ export default {
     }
   },
   mounted() {
+    this.loading=true
     //向后台请求数据
     this.get(access.getLink.url, { params: { linkId: this.$route.params.linkId } })
       .then(resp => {
+        this.loading=false
         if (resp.data.content) {
           var root = JSON.parse(resp.data.content)
           this.maxNodeId = util.addKey(root)
@@ -44,6 +47,7 @@ export default {
         delete this.linkData["content"]
       })
       .catch(err => {
+        this.loading=false
         console.log(err)
       })
   },

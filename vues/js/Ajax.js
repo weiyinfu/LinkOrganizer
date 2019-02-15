@@ -3,6 +3,7 @@
  * 实现一个Vue插件
  * */
 const axios = require("axios")
+const url = require("url")
 const accessControl = require("./AccessControl")
 const config = require("../config")
 
@@ -17,8 +18,11 @@ module.exports = {
               reject("forbidden")
               return
             }
+            if (this.locationStruct().path.startsWith(config.baseUrl)) {
+              url = config.baseUrl + url
+            }
             axios
-              .get(config.baseUrl + url, ...args)
+              .get(url, ...args)
               .then(resp => {
                 resolve(resp)
               })
@@ -34,8 +38,11 @@ module.exports = {
               reject("forbidden")
               return
             }
+            if (this.locationStruct().path.startsWith(config.baseUrl)) {
+              url = config.baseUrl + url
+            }
             axios
-              .post(config.baseUrl + url, ...args)
+              .post(url, ...args)
               .then(resp => {
                 resolve(resp)
               })
@@ -43,6 +50,9 @@ module.exports = {
                 reject(err)
               })
           })
+        },
+        locationStruct() {
+          return url.parse(location.href)
         }
       }
     })

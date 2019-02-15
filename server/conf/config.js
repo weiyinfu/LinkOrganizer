@@ -19,8 +19,8 @@ if (!fs.existsSync(logPath)) {
 }
 module.exports = {
   managerList: ["weiyinfu"],
-  mode: "development",
-  // mode: "production",
+  // mode: "development",
+  mode: "production",
   port: 8879,
   logPath,
   githubAuth: {

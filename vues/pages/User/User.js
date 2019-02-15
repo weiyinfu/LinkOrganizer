@@ -5,6 +5,7 @@ export default {
   components: { CardList },
   data() {
     return {
+      loading: true,
       //关于对话框
       aboutDialog: {
         visible: false
@@ -78,7 +79,6 @@ export default {
     })
       .then(resp => {
         var userInfo = resp.data.extra.githubInfo
-        console.log(resp.data)
         for (var i in this.userInfo) {
           if (userInfo[i]) this.userInfo[i] = userInfo[i]
         }
@@ -97,15 +97,18 @@ export default {
     },
     //获取用户的全部文件夹
     requestFolder() {
+      this.loading = true
       this.get(access.getLinkOfUser.url, {
         params: {
           username: this.$route.params.username
         }
       })
         .then(resp => {
+          this.loading = false
           this.folderList = resp.data
         })
         .catch(err => {
+          this.loading = false
           console.log(err)
         })
     },

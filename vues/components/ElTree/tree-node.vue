@@ -54,13 +54,12 @@
         role="group"
         :aria-expanded="expanded">
         <el-tree-node :render-content="renderContent"
-          v-for="child in node.childNodes"
+          v-for="child in visibleNodes"
           :render-after-expand="renderAfterExpand"
           :key="getNodeKey(child)"
           :node="child"
           :should-show="shouldShow"
-          @node-expand="handleChildNodeExpand"
-          v-if="shouldShow(child)">
+          @node-expand="handleChildNodeExpand">
         </el-tree-node>
       </div>
     </el-collapse-transition>
@@ -148,6 +147,9 @@ export default {
         }
       }
       return true
+    },
+    visibleNodes() {
+      return this.node.childNodes.filter(this.shouldShow)
     }
   },
   watch: {

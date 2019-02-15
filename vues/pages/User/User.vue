@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container class="user"  v-loading.fullscreen.lock="loading">
     <el-header>
       <router-link :to="userHome()"
         id="logo">
@@ -165,4 +165,4 @@
   </el-container>
 </template>
 <script src="./User.js"></script>
-<style lang="less"  module src="./User.less"></style>
+<style lang="less" src="./User.less"></style>

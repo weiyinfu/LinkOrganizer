@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div class="organizer"  v-loading.fullscreen.lock="loading">
     <div id="header">
       <router-link :to="userHome()"
         id="logo">
@@ -112,5 +112,5 @@
     </el-dialog>
   </div>
 </template>
-<script src="./App.js"> </script>
-<style lang="less" src="./App.less" module></style>
+<script src="./Organizer.js"> </script>
+<style lang="less" src="./Organizer.less"></style>

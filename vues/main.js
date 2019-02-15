@@ -5,14 +5,8 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import ElementUI from "element-ui"
-import "element-ui/lib/theme-chalk/index.css"
 
-//使用模块化导入CSS会有一些问题
-// const App = () => import("./pages/App/App.vue")
-// const User = () => import("./pages/User/User.vue")
-// const Home = () => import("./pages/Home.vue")
-// const Crawl = () => import("./pages/Crawl.vue")
-import App from "./pages/App/App.vue"
+import Organizer from "./pages/Organizer/Organizer.vue"
 import User from "./pages/User/User.vue"
 import Home from "./pages/Home.vue"
 import Crawl from "./pages/Crawl.vue"
@@ -40,7 +34,7 @@ new Vue({
       {
         name: "link.page",
         path: "/:username/link/:linkId",
-        component: App
+        component: Organizer
       },
       { name: "crawl.page", path: "/crawl/:linkId", component: Crawl }
     ]

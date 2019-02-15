@@ -3,7 +3,7 @@
         <span>404</span>
     </div>
 </template>
-<style scoped language="less">
+<style language="less">
 #notFound {
   font-size: 200px;
   font-family: Consolas;

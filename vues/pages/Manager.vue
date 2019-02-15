@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="manager">
     storeList<br>
     <div><span v-for="storeId in storeState"
         :key="storeId">{{storeId}}</span></div>
@@ -28,5 +28,5 @@ export default {
   }
 }
 </script>
-<style lang="less" module>
+<style lang="less">
 </style>

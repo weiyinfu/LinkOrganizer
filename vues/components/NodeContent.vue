@@ -1,9 +1,9 @@
 <template>
-    <div class="node-content"
+    <div :class="$style['node-content']"
         ref="nodeContent">
         <span>
             <i :class="'fa '+iconType" />&nbsp; {{node.label}} </span> &nbsp; &nbsp;
-        <span class="url">{{node.data.url}}</span>
+        <span :class="$style.url">{{node.data.url}}</span>
     </div>
 </template>
 <script >

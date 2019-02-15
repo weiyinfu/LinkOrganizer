@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper">
+  <div class="home"
+    id="home">
     <div class="login-panel"
       @click="handleLoginClick">
       <span class="title">链接管理器</span><br>
@@ -10,7 +11,7 @@
     
 <script >
 const control = require("../js/AccessControl")
-export default { 
+export default {
   methods: {
     handleLoginClick() {
       control.login(false)
@@ -20,31 +21,34 @@ export default {
 
 </script>
 
-<style lang="less"  module>
+<style lang="less">
 @import "../common.less";
-.wrapper {
-  .fillParent();
-  background-color: antiquewhite;
-  box-shadow: 20px 20px 440px #2f10df inset, 30px 30px 200px #aaa4af inset, 0 0 750px #6d6e88 inset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.login-panel {
-  width: fit-content;
-  height: fit-content;
-  text-align: center;
-  background: white;
-  border-radius: 40px;
-  box-shadow: 0 0 100px #61406e, 0 0 100px #0f0e74 inset;
-  padding: 50px;
-  user-select: none;
-  .title {
-    font-size: 35px;
-    font-family: "华文新魏", "隶书", "楷体", "微软雅黑", Consolas;
+.home {
+  &.wrapper {
+    .fillParent();
+    background-color: antiquewhite;
+    box-shadow: 20px 20px 440px #2f10df inset, 30px 30px 200px #aaa4af inset,
+      0 0 750px #6d6e88 inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  &:hover {
-    box-shadow: 0 0 100px #61406e inset, 0 0 100px #0f0e74 inset;
+  .login-panel {
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0 0 100px #61406e, 0 0 100px #0f0e74 inset;
+    padding: 50px;
+    user-select: none;
+    .title {
+      font-size: 35px;
+      font-family: "华文新魏", "隶书", "楷体", "微软雅黑", Consolas;
+    }
+    &:hover {
+      box-shadow: 0 0 100px #61406e inset, 0 0 100px #0f0e74 inset;
+    }
   }
 }
 </style>
