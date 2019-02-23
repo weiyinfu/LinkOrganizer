@@ -45,7 +45,7 @@ const webpackConfig = {
     ]
   },
   output: {
-    path: path.join(__dirname, "../dist"),
+    path: distPath,
     filename: "[name].js"
   },
   module: {
@@ -118,5 +118,5 @@ function generateIndex(distPath) {
   fs.writeFileSync(path.join(distPath, "index.html"), s)
   console.log(chalk.green("generate index.html succssfully"))
 }
-generateIndex(path.join(__dirname, "../dist"))
+generateIndex(path.join(__dirname, distPath))
 module.exports = webpackConfigFilter(webpackConfig)
